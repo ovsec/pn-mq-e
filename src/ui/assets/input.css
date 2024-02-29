@@ -1,0 +1,113 @@
+@tailwind base;
+
+@layer base {
+	html {
+		@apply text-zinc-900 bg-zinc-50;
+	}
+
+	html.dark {
+		@apply text-zinc-100 bg-[#181818];
+	}
+
+	div,p,input {
+		@apply text-base text-zinc-800 dark:text-zinc-400;
+	}
+	section {
+		@apply min-h-screen  [&:not(:first-child)]:my-8 py-8 my-auto;
+	}
+
+    input[type=text], input[type=number] {
+        @apply block min-h-[auto] w-full rounded border-0 bg-[#1C1C1E] px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear  motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:placeholder:opacity-50;
+    }
+
+    #recent-connections {
+        @apply flex gap-2 p-4 items-center
+    }
+    #recent-connections > li {
+        @apply flex  text-zinc-600  border bottom-1 border-zinc-800 rounded-full px-2 text-center items-center  text-sm cursor-pointer
+    }
+    #recent-connections > li:hover {
+        @apply  bg-teal-400/75
+    }
+    
+    
+} 
+
+@tailwind components;
+
+@layer components {
+    .error-text {
+        @apply text-sm text-orange-500;
+    }
+    .success-text {
+        @apply text-sm text-lime-500;
+    }
+}
+ 
+@tailwind utilities;
+
+
+
+:root {
+	--primary-color:  hsl(115, 54%, 76%);
+	--secondary-color: rgb(116, 199, 236);
+	--color-base-green: 158, 79%
+  }
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(203, 166, 247, 0.3);
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(203, 166, 247, 0.7);
+}
+
+*:focus {
+	outline: none !important;
+}
+
+body {
+    margin: 0;
+    
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+    url("./fonts/nunito-v16-latin-regular.woff2") format("woff2");
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.drop_active {
+    border-color: blue;
+}

@@ -1,0 +1,26 @@
+{
+    "mq-servers": [
+        {
+            "isProduction" : false,
+            "title" : "PEPOL",
+            "host" : "host",
+            "port" : 1415,
+            "queue-manager": "queue manager",
+            "channel" : "channel",
+            "queue" : "queue"
+        },
+        {
+            "isProduction" : false,
+            "title" : "PEPOL",
+            "host" : "host",
+            "port" : 1415,
+            "queue-manager": "queue manager",
+            "channel" : "channel",
+            "queue" : "queue"
+        }
+    ]
+
+
+
+
+}

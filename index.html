@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/ui/assets/output.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/ui/assets/fa/css/fontawesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/ui/assets/fa/css/solid.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="app" class="min-h-screen  w-full overflow-x-auto flex flex-col gap-1">
+        <nav class="flex items-center p-4 gap-2">
+          <img src="/src/ui/assets/logo.png" alt="logo" class="h-6" />
+          <span class="text-lg font-extrabold">MQ Client</span>
+          <i class="fa-solid fa-paper-plane rotate-45"></i>
+          <a href="/src/ui/about.html">Abhou</a>
+        </nav>
+        <div class="flex flex-wrap md:flex-nowrap p-4 gap-2 items-center">
+              
+            <input id="host" type="text" placeholder="MQ Host" name="host" value="sapmqtest.postdk.net" /> 
+            <input id="port" type="number" placeholder="Port" name="port" class="!w-16" value=1415 />
+            <input id="qm" type="text" placeholder="Queue Manager" name="qm" value="SAPMQ"/>
+            <input id="channel" type="text" placeholder="Channel" name="channel" value="C.TO.SAPMQ"/>
+            <input id="q" type="text" placeholder="Queue" name="queue" value="OIO.INPUT.FROM.KMD.PTST"/>
+            <button id="send" type="button"  class="disabled:bg-zinc-600 bg-[#0099BB] rounded-md px-4 py-1 w-40 items-center flex gap-2 hover:scale-105" >
+              <span id="text">Send</span>
+              <i class="fa-solid fa-paper-plane rotate-45"></i>
+              
+            </button>
+        </div>
+        <div class="relative w-full flex justify-between">
+          <button type="button" class="bg-transparent absolute right-2 top-0 text-sm" onclick="clearMQEntries()">Clear</button>
+          <ul id="recent-connections" class="flex flex-wrap max-h-24 overflow-y-auto">
+            
+          </ul>
+
+        </div>
+        <div id="message" class="p-4 grid grid-cols-1 place-content-center gap-2">
+          
+          <div class="grid  bg-[#111] rounded-md " 
+            id="drop_zone"
+            
+          >
+            <label id="drop_zone_label" for="file" class="flex  flex-col items-center justify-center w-full  border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-zinc-50 dark:hover:bg-zinc-800 dark:bg-zinc-900 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-zinc-700 ">
+              <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg class="w-6 h-6 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                  </svg>
+                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to send</span> or drag and drop</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">xml, txt</p>
+              </div>
+              <button type="button" id="file" name="file" onclick="onFileChange()" class="hidden">Select</button>
+              <p id="selected" class="text-xs text-gray-500 dark:text-gray-400  bg-zinc-700"></p>
+              <!-- <input onchange="onFileChange(event)" id="file" type="file" class="hidden" id="file" /> -->
+          </label>
+          </div>
+          <div id="file-list">
+            
+            
+          </div>
+          
+        </div>
+
+        <div class="flex-1"></div>
+        <div class="p-4">
+          <h2 class="text-base font-semibold">Logs</h2>
+          <div id="logs" class="p-4 h-32 overflow-y-auto overflow-x-auto">
+           
+          </div>
+        </div>
+        
+        <footer class="flex text-sm items-center p-4 ">
+          <a id="mailto" href="" class="text-xs flex items-center gap-2"><i class="fa-solid fa-envelope"></i> Contact </a>
+        </footer>
+      </div>
+      
+
+      <script type="module" src="/src/renderer.js"></script>
+  </body>
+</body>
+</html>
