@@ -4,6 +4,7 @@
   "version": "1.1.0",
   "description": "My Electron application description",
   "main": ".vite/build/main.js",
+  "repository": "https://github.com/ovsec/pn-mq-e",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

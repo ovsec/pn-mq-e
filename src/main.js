@@ -1,10 +1,13 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const { updateElectronApp } = require('update-electron-app')
 const path = require('path');
 //const put = require('./mq')
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
+
+updateElectronApp()
 
 const createWindow = () => {
   // Create the browser window.
@@ -24,7 +27,8 @@ const createWindow = () => {
   }
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if(!app.isPackaged)
+    mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -79,4 +83,3 @@ const logger = (msg) =>{
     mainWindow.webContents.send('update-logs', msg)
 }
 
-require('update-electron-app')()
