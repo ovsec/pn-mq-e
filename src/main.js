@@ -78,3 +78,5 @@ ipcMain.handle('input:drop', (event, arg) => {
 const logger = (msg) =>{
     mainWindow.webContents.send('update-logs', msg)
 }
+
+require('update-electron-app')()
